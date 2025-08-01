@@ -65,7 +65,7 @@ Clone and open it in your browser:
 git clone https://github.com/Vishayadav/PixxelHack-Webathon-1.0.git
 cd PixxelHack-Webathon-1.0
 open index.html
-
+```
 ## 🚧 Limitations
 
 - This is a static front-end replica. No backend functionalities are implemented.
