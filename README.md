@@ -39,7 +39,7 @@ PixxelHack-Webathon-1.0/
 ├── script.js       # JS file
 ├── LICENSE         # MIT LICESNSE
 └── README.md       # This file
-
+```
 
 
 ---
