@@ -3,14 +3,14 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #333;
+  color: #2c1810;
   width: 100vw;
   overflow-x: hidden;
   
-  /* Elegant soft glow gradient background */
-  background: linear-gradient(140deg, #f3cba8, #f5b98b, #e7a155, #58310e);
+  /* Enhanced warm fashion gradient background */
+  background: linear-gradient(140deg, #f8e6d3, #f5d4b8, #e8b788, #d49962, #7c4d28);
   background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
+  animation: gradientShift 25s ease infinite;
   position: relative;
 }
 
@@ -24,18 +24,18 @@ body {
 /* Scroll Animation Styles */
 .scroll-element {
   opacity: 0;
-  transform: translateY(50px);
+  transform: scale(0.95);
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .scroll-element.animate-in {
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1);
 }
 
 .scroll-element.animate-out {
   opacity: 0.3;
-  transform: translateY(-20px) scale(0.95);
+  transform: scale(0.95);
 }
 
 .container {
@@ -76,18 +76,21 @@ body {
 .hero-img {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: scale(0.95) translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0.9;
   position: relative;
   overflow: hidden;
   cursor: none;
   
-  /* Responsive sizing for one row display */
+  /* Responsive sizing for one row display - increased height */
   width: 280px;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
   flex-shrink: 0;
+  
+  /* Override scroll-element transforms and transitions - keep completely static */
+  transform: none !important;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   
   /* Lighter faded/desaturated initial state - more visible */
   filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
@@ -106,14 +109,16 @@ body {
 }
 
 .hero-img.animate-in {
-  transform: scale(1) translateY(0);
   opacity: 1;
+  transform: none !important;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .hero-img.animate-out {
-  transform: scale(0.9) translateY(-20px);
   opacity: 0.5;
   filter: grayscale(90%) brightness(0.5) contrast(0.7);
+  transform: none !important;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Custom cursor for hero images */
@@ -287,11 +292,29 @@ body {
 .secondDiv{
     height: 400px;
     width: 100%;
-    background-color: rgb(78, 15, 15);
+    background: linear-gradient(135deg, #4a2c17, #6b3d24, #8b4f30, #a86b42);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    position: relative;
+}
+
+.secondDiv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
 }
 
 .card1{
@@ -334,7 +357,7 @@ body {
 }
 
 .card1 button {
-    background-color: #652d10;
+    background: linear-gradient(135deg, #8b4f30, #a86b42);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -342,12 +365,14 @@ body {
     cursor: pointer;
     margin-top: 10px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 1px 2px 0px black;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card1 button:hover {
-    background-color: #985b3c;
+    background: linear-gradient(135deg, #a86b42, #c9864f);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .card2{
@@ -391,7 +416,7 @@ body {
 }
 
 .card2 button {
-    background-color: #652d10;
+    background: linear-gradient(135deg, #6b3d24, #8b4f30);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -399,12 +424,14 @@ body {
     cursor: pointer;
     margin-top: 10px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 1px 2px 0px black;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card2 button:hover {
-    background-color: #985b3c;
+    background: linear-gradient(135deg, #8b4f30, #a86b42);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .card3{
@@ -446,7 +473,7 @@ body {
 }
 
 .card3 button {
-    background-color: #652d10;
+    background: linear-gradient(135deg, #4a2c17, #6b3d24);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -454,12 +481,14 @@ body {
     cursor: pointer;
     margin-top: 10px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 1px 2px 0px black;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card3 button:hover {
-    background-color: #985b3c;
+    background: linear-gradient(135deg, #6b3d24, #8b4f30);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .card4{
@@ -502,7 +531,7 @@ body {
 }
 
 .card4 button {
-    background-color: #652d10;
+    background: linear-gradient(135deg, #a86b42, #c9864f);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -510,12 +539,14 @@ body {
     cursor: pointer;
     margin-top: 10px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 1px 2px 0px black;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card4 button:hover {
-    background-color: #985b3c;
+    background: linear-gradient(135deg, #c9864f, #e8a866);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Navbar */
@@ -524,22 +555,23 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(248, 230, 211, 0.95);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 99999;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(76, 44, 23, 0.15);
   -webkit-backdrop-filter:blur(15px);
   backdrop-filter: blur(15px);
-  border-bottom: 2px solid rgba(124, 77, 40, 0.1);
+  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #7c4d28;
+  color: #4a2c17;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -552,16 +584,17 @@ body {
   text-decoration: none;
   padding: 10px 24px;
   border-radius: 50px;
-  background-color: #7c4d28;
+  background: linear-gradient(135deg, #6b3d24, #8b4f30);
   color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .nav-links li a:hover {
-  background-color: #fff;
-  color: #7c4d28;
-  box-shadow: 0 4px 12px rgba(124, 77, 40, 0.2);
+  background: linear-gradient(135deg, #f8e6d3, #f5d4b8);
+  color: #4a2c17;
+  box-shadow: 0 4px 12px rgba(139, 79, 48, 0.3);
+  transform: translateY(-1px);
 }
 
 #lastAnchorLink{
@@ -591,17 +624,23 @@ body {
 }
 .promo-section {
   width: 100%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(248, 230, 211, 0.85);
   padding: 100px 60px;
   text-align: center;
-  color: #7c4d28;
--webkit-backdrop-filter:blur(5px) ;
-  backdrop-filter: blur(5px);
+  color: #4a2c17;
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 2px solid rgba(139, 79, 48, 0.2);
+  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
 }
 
 .promo-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  background: linear-gradient(135deg, #6b3d24, #a86b42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .promo-section p {
@@ -669,8 +708,74 @@ body {
 .afterscroll{
   height: 55vh;
   width: 100%;
-  background-color: brown;
+  background: linear-gradient(135deg, #3d1f0f, #4a2c17, #6b3d24);
+  display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.afterscroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(168, 107, 66, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Marquee Container */
+.marquee-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Marquee Track */
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 60s linear infinite;
+  gap: 30px;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Marquee Images */
+.marquee-image {
+  height: 320px;
+  width: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for individual images */
+.marquee-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  position: relative;
+}
+
+/* Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
