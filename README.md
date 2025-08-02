@@ -19,7 +19,13 @@ Replicate the web design provided using clean, responsive, and accessible front-
 - 🧠 Semantic and accessible HTML structure
 
 ---
+## 📂 Elements Incorporated
 
+-  Element 2: Image Hover
+-  Element 3: Image Grid
+-  Element 6: Infinite Marquee
+
+---
 ## 🛠️ Tech Stack
 
 - **HTML5** – Semantic markup  
@@ -46,16 +52,10 @@ PixxelHack-Webathon-1.0/
 
 ## 🖥️ Live Preview
 
-🔗 **[Live Demo Link](#)**  
-*(Replace with deployed URL from GitHub Pages.)*
+🔗 **[Live Deployed Link](#https://vishayadav.github.io/PixxelHack-Webathon-1.0/)**  
 
 ---
 
-## 📸 Screenshots
-
-> (Screenshots here.)
-
----
 
 ## 📌 How to Run Locally
 
