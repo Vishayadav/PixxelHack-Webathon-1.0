@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 new fullpage('#fullpage', {
   navigation: false,
   verticalCentered: true,
@@ -11,10 +10,22 @@ new fullpage('#fullpage', {
     gsap.fromTo(img, {opacity:0, y:50}, {opacity:1, y:0, duration:1});
   }
 });
+// Enable navbar button functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const homeBtn = document.querySelector('#nav-home');
+  const collectionBtn = document.querySelector('#nav-collection');
+  const aboutBtn = document.querySelector('#nav-about');
+  const contactBtn = document.querySelector('#nav-contact');
+
+  homeBtn?.addEventListener('click', () => fullpage_api.moveTo(1));
+  collectionBtn?.addEventListener('click', () => fullpage_api.moveTo(2));
+  aboutBtn?.addEventListener('click', () => fullpage_api.moveTo(3));
+  contactBtn?.addEventListener('click', () => fullpage_api.moveTo(4));
+});
+
 
 // Auto-advance sections every 4 seconds
 setInterval(() => fullpage_api.moveSectionDown(), 4000);
-=======
 // Enhanced Scroll Animation Script with Ink Spread Effect
 document.addEventListener('DOMContentLoaded', function() {
     const scrollElements = document.querySelectorAll('.scroll-element:not(.hero-img)');
@@ -247,4 +258,3 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 });
->>>>>>> e0c33d2f732e0808806820ee26e1289279475b07

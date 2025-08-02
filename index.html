@@ -3,127 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PixxelHack Webathon 1.0</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>FashionHaus</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">FASHIONHAUS</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" id="lastAnchorLink">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section class="ripple-section" id="home">
+      <span class="ripple r1"></span>
+      <span class="ripple r2"></span>
+      <span class="ripple r3"></span>
+      <div class="section" data-anchor="home">
+        <div class="container">
+          <div class="card">
+            <div class="image-container">
+              <img src="images/PixxelHack2.jpg" alt="" class="hero-img scroll-element" data-delay="0" />
+              <div class="color-reveal"></div>
+              <div class="ink-spread"></div>
+            </div>
+            <div class="image-container">
+              <img src="images/PixxelHack1.jpg" alt="" class="hero-img scroll-element" data-delay="200" />
+              <div class="color-reveal"></div>
+              <div class="ink-spread"></div>
+            </div>
+            <div class="image-container">
+              <img src="images/PixxelHack3.jpg" alt="" class="hero-img scroll-element" data-delay="400" />
+              <div class="color-reveal"></div>
+              <div class="ink-spread"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLLECTIONS SECTION -->
+    <section id="collections">
+      
     
 
- <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">FashionHaus</div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Collections</a></li>
-      <li><a href="#" id="lastAnchorLink">Contact</a></li>
-    </ul>
-  </nav>
-<section class="ripple-section">
-  <!-- Ripple layers -->
-  <span class="ripple r1"></span>
-  <span class="ripple r2"></span>
-  <span class="ripple r3"></span>
+      <div id="fullpage">
+        <div class="section"><img src="images/m1.jpg" alt=""></div>
+        <div class="section"><img src="images/m2.jpg" alt=""></div>
+        <div class="section"><img src="images/m3.jpg" alt=""></div>
+        <div class="section"><img src="images/m6.jpg" alt=""></div>
+        <div class="section"><img src="images/m7.jpg" alt=""></div>
+        <div class="section"><img src="images/m8.jpg" alt=""></div>
+      </div>
 
-<div class="container">
-    <div class="card">
-        <div class="image-container">
-            <img src="images/PixxelHack2.jpg" alt="" class="hero-img scroll-element" data-delay="0">
-            <div class="color-reveal"></div>
-            <div class="ink-spread"></div>
+      <!-- PROMO -->
+      <section class="promo-section">
+        <h2>New Drop Coming Soon</h2>
+        <p>Stay tuned for our next collection release — elegance redefined.</p>
+      </section>
+
+      <!-- PHOTOGRAPHY INFO CARDS -->
+      <div class="secondDiv">
+        <div class="card1 scroll-element">
+          <h2>Fashion Editorial Photography</h2>
+          <p>Visual symphony where fashion meets storytelling..</p>
+          <button>Learn More</button>
         </div>
-        <div class="image-container">
-            <img src="images/PixxelHack1.jpg" alt="" class="hero-img scroll-element" data-delay="200">
-            <div class="color-reveal"></div>
-            <div class="ink-spread"></div>
+        <div class="card2 scroll-element">
+          <h2>Lifestyle Portrait Photography</h2>
+          <p>Where real-life grace meets curated stillness..</p>
+          <button>Learn More</button>
         </div>
-        <div class="image-container">
-            <img src="images/PixxelHack3.jpg" alt="" class="hero-img scroll-element" data-delay="400">
-            <div class="color-reveal"></div>
-            <div class="ink-spread"></div>
+        <div class="card3 scroll-element">
+          <h2>Studio Portrait Photography</h2>
+          <p>Precision meets poise in perfect lighting</p>
+          <button>Explore</button>
         </div>
-    </div>
-</div>
-<<<<<<< HEAD
-<section id="fullpage">
-  <div class="section"><img src="images/m1.jpg" alt=""></div>
-  <div class="section"><img src="images/m2.jpg" alt=""></div>
-  <div class="section"><img src="images/m3.jpg" alt=""></div>
-  <div class="section"><img src="images/m6.jpg" alt=""></div>
-  <div class="section"><img src="images/m7.jpg" alt=""></div>
-  <div class="section"><img src="images/m8.jpg" alt=""></div>
-</section>
+        <div class="card4 scroll-element">
+          <h2>Outdoor Fashion Photography</h2>
+          <p>Where architecture and attitude steal the frame.</p>
+          <button>Discover</button>
+        </div>
+      </div>
+  <!-- ABOUT SECTION ABOVE SLIDER -->
+      <section id="about" class="about-section">
+        <h2>About FashionHaus</h2>
+        <p>
+          <strong>FashionHaus</strong> is a digital atelier where couture meets code. Our vision blends high-end fashion aesthetics with innovative visual storytelling, capturing the essence of elegance, power, and presence in every frame. At FashionHaus, every collection is a narrative — crafted with precision, draped in creativity, and delivered with immersive design. Whether on the street or the runway, we bring fashion to life with a modern, digital twist.
+        </p>
+      </section>
+      <!-- SLIDING GALLERY -->
+      <div class="section" data-anchor="collections">
+        <div class="afterscroll">
+          <div class="marquee-container">
+            <div class="marquee-track">
+              <!-- Duplicated for seamless scroll -->
+<img src="images/PixxelHack8.jpg" class="marquee-image" alt="Model in urban fashionwear">
+<img src="images/PixxelHack9.jpg" class="marquee-image" alt="Black and white editorial shoot">
+<img src="images/PixxelHack11.jpg" class="marquee-image" alt="Minimalist street style look">
+<img src="images/PixxelHack12.jpg" class="marquee-image" alt="Bold fashion portrait with lighting">
+<img src="images/PixxelHack13.jpg" class="marquee-image" alt="High-fashion runway outfit">
+<img src="images/PixxelHack14.jpg" class="marquee-image" alt="Outdoor photoshoot with neutral tones">
+<img src="images/PixxelHack15.jpg" class="marquee-image" alt="Creative pose in monochrome">
+<img src="images/PixxelHack16.jpg" class="marquee-image" alt="Close-up portrait with makeup highlight">
+<img src="images/PixxelHack17.jpg" class="marquee-image" alt="Fashion editorial with silhouette style">
+<img src="images/PixxelHack18.jpg" class="marquee-image" alt="Model standing in architectural location">
+<img src="images/PixxelHack19.jpg" class="marquee-image" alt="Layered styling with natural background">
+<img src="images/PixxelHack20.jpg" class="marquee-image" alt="Soft pastel-themed editorial">
 
+<!-- Duplicate set with same alt values -->
+<img src="images/PixxelHack8.jpg" class="marquee-image" alt="Model in urban fashionwear">
+<img src="images/PixxelHack9.jpg" class="marquee-image" alt="Black and white editorial shoot">
+<img src="images/PixxelHack11.jpg" class="marquee-image" alt="Minimalist street style look">
+<img src="images/PixxelHack12.jpg" class="marquee-image" alt="Bold fashion portrait with lighting">
+<img src="images/PixxelHack13.jpg" class="marquee-image" alt="High-fashion runway outfit">
+<img src="images/PixxelHack14.jpg" class="marquee-image" alt="Outdoor photoshoot with neutral tones">
+<img src="images/PixxelHack15.jpg" class="marquee-image" alt="Creative pose in monochrome">
+<img src="images/PixxelHack16.jpg" class="marquee-image" alt="Close-up portrait with makeup highlight">
+<img src="images/PixxelHack17.jpg" class="marquee-image" alt="Fashion editorial with silhouette style">
+<img src="images/PixxelHack18.jpg" class="marquee-image" alt="Model standing in architectural location">
+<img src="images/PixxelHack19.jpg" class="marquee-image" alt="Layered styling with natural background">
+<img src="images/PixxelHack20.jpg" class="marquee-image" alt="Soft pastel-themed editorial">
 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-=======
-</section>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>hello@pixxelhack.com</p>
+        </div>
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+        </div>
+        <div class="contact-card">
+          <h3>Address</h3>
+          <p>Studio 21, Mumbai, India</p>
+        </div>
+        <div class="contact-card">
+          <h3>Social</h3>
+          <p>@pixxelhack (Instagram)</p>
+        </div>
+      </div>
+    </section>
 
->>>>>>> e0c33d2f732e0808806820ee26e1289279475b07
-<section class="promo-section">
-  <h2>New Drop Coming Soon</h2>
-  <p>Stay tuned for our next collection release — elegance redefined.</p>
-</section>
-
-<div class="secondDiv">
-  <div class="card1 scroll-element">
-    <h2>Fashion Editorial Photography</h2>
-    <p>Visual symphony where fashion meets storytelling..</p>
-    <button>Learn More</button>
-  </div>
-
-  <div class="card2 scroll-element">
-    <h2>Lifestyle Portrait Photography</h2>
-    <p>Where real-life grace meets curated stillness..</p>
-    <button>Learn More</button>
-  </div>
-  
-  <div class="card3 scroll-element">
-    <h2>Studio Portrait Photography</h2>
-    <p>Precision meets poise in perfect lighting</p>
-    <button>Explore</button>
-  </div>
-  
-  <div class="card4 scroll-element">
-    <h2>Outdoor Fashion Photography</h2>
-    <p>Where architecture and attitude steal the frame.</p>
-    <button>Discover</button>
-  </div>
-</div>    
-
-<div class="afterscroll">
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <img src="images/PixxelHack8.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack9.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack11.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack12.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack13.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack14.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack15.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack16.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack17.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack18.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack19.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack20.jpg" alt="Fashion Photo" class="marquee-image">
-      <!-- Duplicate set for seamless infinite scroll -->
-      <img src="images/PixxelHack8.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack9.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack11.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack12.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack13.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack14.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack15.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack16.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack17.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack18.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack19.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack20.jpg" alt="Fashion Photo" class="marquee-image">
-    </div>
-  </div>
-</div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
