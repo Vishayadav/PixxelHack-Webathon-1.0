@@ -1,115 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta tags for responsive design and character encoding -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PixxelHack Webathon 1.0</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <!-- External stylesheet for all styling -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Fixed Navigation Bar -->
+    <nav class="navbar">
+      <!-- Brand logo/name -->
+      <div class="logo">FashionHaus</div>
+      <!-- Navigation menu items -->
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#" id="lastAnchorLink">Contact</a></li>
+      </ul>
+    </nav>
 
- <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">FashionHaus</div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Shop</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Collections</a></li>
-      <li><a href="#" id="lastAnchorLink">Contact</a></li>
-    </ul>
-  </nav>
-<section class="ripple-section">
-  <!-- Ripple layers -->
-  <span class="ripple r1"></span>
-  <span class="ripple r2"></span>
-  <span class="ripple r3"></span>
+    <!-- Hero Section with Ripple Background Effects -->
+    <section class="ripple-section">
+      <!-- Animated ripple effect elements -->
+      <span class="ripple r1"></span>
+      <span class="ripple r2"></span>
+      <span class="ripple r3"></span>
 
-<div class="container">
-    <div class="card">
-        <div class="image-container">
-            <img src="images/PixxelHack2.jpg" alt="" class="hero-img scroll-element" data-delay="0">
+      <!-- Main hero container -->
+      <div class="container">
+        <!-- Card containing hero images with ink spread effect -->
+        <div class="card">
+          <!-- First Hero Image with Ink Effect -->
+          <div class="image-container">
+            <!-- Faded base image (PixxelHack2.jpg) -->
+            <img
+              src="images/PixxelHack2.jpg"
+              alt="Fashion Photography Hero Image 1"
+              class="hero-img scroll-element"
+              data-delay="0"
+            />
+            <!-- Color reveal layer that shows on hover (same image, full color) -->
             <div class="color-reveal"></div>
+            <!-- Ink spread animation element -->
             <div class="ink-spread"></div>
-        </div>
-        <div class="image-container">
-            <img src="images/PixxelHack1.jpg" alt="" class="hero-img scroll-element" data-delay="200">
+          </div>
+
+          <!-- Second Hero Image with Ink Effect -->
+          <div class="image-container">
+            <!-- Faded base image (PixxelHack1.jpg) -->
+            <img
+              src="images/PixxelHack1.jpg"
+              alt="Fashion Photography Hero Image 2"
+              class="hero-img scroll-element"
+              data-delay="200"
+            />
+            <!-- Color reveal layer that shows on hover -->
             <div class="color-reveal"></div>
+            <!-- Ink spread animation element -->
             <div class="ink-spread"></div>
-        </div>
-        <div class="image-container">
-            <img src="images/PixxelHack3.jpg" alt="" class="hero-img scroll-element" data-delay="400">
+          </div>
+
+          <!-- Third Hero Image with Ink Effect -->
+          <div class="image-container">
+            <!-- Faded base image (PixxelHack3.jpg) -->
+            <img
+              src="images/PixxelHack3.jpg"
+              alt="Fashion Photography Hero Image 3"
+              class="hero-img scroll-element"
+              data-delay="400"
+            />
+            <!-- Color reveal layer that shows on hover -->
             <div class="color-reveal"></div>
+            <!-- Ink spread animation element -->
             <div class="ink-spread"></div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Brand Story Section with Background Image -->
+    <section class="brand-story scroll-element" data-delay="100">
+      <div class="story-bg-overlay"></div>
+      <div class="story-container">
+        <div class="story-text">
+          <h2>Capturing Elegance, Defining Style</h2>
+          <p class="lead-text">At FashionHaus, we don't just take photographs — we craft visual narratives that transcend the ordinary.</p>
+          <p>With over a decade of experience in high-fashion photography, our studio has become synonymous with sophistication, creativity, and uncompromising quality. Every frame tells a story, every pose speaks volumes, and every session becomes an artistic journey.</p>
+          <div class="story-stats">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Fashion Shoots</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Magazine Features</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Fashion Weeks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section class="featured-work scroll-element" data-delay="200">
+      <div class="featured-container">
+        <h2>Featured in Leading Publications</h2>
+        <div class="publications-grid">
+          <div class="publication-item">
+            <div class="pub-logo">VOGUE</div>
+            <p>"Redefining modern fashion photography with artistic precision."</p>
+          </div>
+          <div class="publication-item">
+            <div class="pub-logo">ELLE</div>
+            <p>"Where creativity meets commercial excellence in every shot."</p>
+          </div>
+          <div class="publication-item">
+            <div class="pub-logo">BAZAAR</div>
+            <p>"Setting new standards in contemporary fashion imagery."</p>
+          </div>
+          <div class="publication-item">
+            <div class="pub-logo">MARIE CLAIRE</div>
+            <p>"A visionary approach to fashion storytelling."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photography Services Cards Section -->
+    <div class="secondDiv">
+      <!-- Card 1: Fashion Editorial Photography -->
+      <div class="card1 scroll-element">
+        <h2>Fashion Editorial Photography</h2>
+        <p>Visual symphony where fashion meets storytelling.</p>
+        <button>Learn More</button>
+      </div>
+
+      <!-- Card 2: Lifestyle Portrait Photography -->
+      <div class="card2 scroll-element">
+        <h2>Lifestyle Portrait Photography</h2>
+        <p>Where real-life grace meets curated stillness.</p>
+        <button>Learn More</button>
+      </div>
+
+
+      <!-- Card 3: Studio Portrait Photography -->
+      <div class="card3 scroll-element">
+        <h2>Studio Portrait Photography</h2>
+        <p>Precision meets poise in perfect lighting.</p>
+        <button>Explore</button>
+      </div>
+
+      <!-- Card 4: Outdoor Fashion Photography -->
+      <div class="card4 scroll-element">
+        <h2>Outdoor Fashion Photography</h2>
+        <p>Where architecture and attitude steal the frame.</p>
+        <button>Discover</button>
+      </div>
     </div>
-</div>
-</section>
 
-<section class="promo-section">
-  <h2>New Drop Coming Soon</h2>
-  <p>Stay tuned for our next collection release — elegance redefined.</p>
-</section>
+    <!-- Client Testimonials Section -->
+    <section class="testimonials scroll-element" data-delay="150">
+      <div class="testimonials-container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "FashionHaus transformed our brand's visual identity. Their attention to detail and artistic vision exceeded our expectations."
+            </div>
+            <div class="testimonial-author">
+              <span class="author-name">Isabella Chen</span>
+              <span class="author-title">Creative Director, Luxe Atelier</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Working with this team was an absolute dream. They captured the essence of our collection beautifully."
+            </div>
+            <div class="testimonial-author">
+              <span class="author-name">Marcus Rodriguez</span>
+              <span class="author-title">Founder, Urban Elegance</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Professional, creative, and results-driven. Every photograph tells a compelling story."
+            </div>
+            <div class="testimonial-author">
+              <span class="author-name">Sophia Williams</span>
+              <span class="author-title">Fashion Editor, Style Weekly</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="secondDiv">
-  <div class="card1 scroll-element">
-    <h2>Fashion Editorial Photography</h2>
-    <p>Visual symphony where fashion meets storytelling..</p>
-    <button>Learn More</button>
-  </div>
+    <!-- Process Section -->
+    <section class="process-section scroll-element" data-delay="200">
+      <div class="process-container">
+        <h2>Our Creative Process</h2>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">01</div>
+            <h3>Concept Development</h3>
+            <p>We collaborate with you to understand your vision and develop a creative concept that aligns with your brand identity.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">02</div>
+            <h3>Pre-Production</h3>
+            <p>Detailed planning including location scouting, styling coordination, and technical preparation to ensure flawless execution.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">03</div>
+            <h3>Photography Session</h3>
+            <p>Professional shoot with state-of-the-art equipment, expert lighting, and creative direction to capture stunning imagery.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">04</div>
+            <h3>Post-Production</h3>
+            <p>Meticulous editing and retouching to enhance every detail while maintaining the authentic essence of your brand.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <div class="card2 scroll-element">
-    <h2>Lifestyle Portrait Photography</h2>
-    <p>Where real-life grace meets curated stillness..</p>
-    <button>Learn More</button>
-  </div>
-  
-  <div class="card3 scroll-element">
-    <h2>Studio Portrait Photography</h2>
-    <p>Precision meets poise in perfect lighting</p>
-    <button>Explore</button>
-  </div>
-  
-  <div class="card4 scroll-element">
-    <h2>Outdoor Fashion Photography</h2>
-    <p>Where architecture and attitude steal the frame.</p>
-    <button>Discover</button>
-  </div>
-</div>    
+    <!-- Call to Action Section -->
+    <section class="cta-section scroll-element" data-delay="100">
+      <div class="cta-container">
+        <h2>Ready to Elevate Your Brand?</h2>
+        <p>Let's create something extraordinary together. Book your consultation today.</p>
+        <div class="cta-buttons">
+          <button class="cta-primary">Book a Session</button>
+          <button class="cta-secondary">View Portfolio</button>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">Email:</span>
+            <span class="contact-value">hello@fashionhaus.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Phone:</span>
+            <span class="contact-value">+1 (555) 123-4567</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Studio:</span>
+            <span class="contact-value">New York • Los Angeles • Paris</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="afterscroll">
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <img src="images/PixxelHack8.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack9.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack11.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack12.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack13.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack14.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack15.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack16.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack17.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack18.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack19.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack20.jpg" alt="Fashion Photo" class="marquee-image">
-      <!-- Duplicate set for seamless infinite scroll -->
-      <img src="images/PixxelHack8.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack9.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack11.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack12.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack13.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack14.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack15.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack16.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack17.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack18.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack19.jpg" alt="Fashion Photo" class="marquee-image">
-      <img src="images/PixxelHack20.jpg" alt="Fashion Photo" class="marquee-image">
+    <!-- Infinite Marquee Gallery Section -->
+    <div class="afterscroll">
+      <!-- Marquee container with pause-on-hover functionality -->
+      <div class="marquee-container">
+        <!-- Scrolling track containing all images -->
+        <div class="marquee-track">
+          <!-- First set of images for seamless loop -->
+          <img
+            src="images/PixxelHack8.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack9.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack11.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack12.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack13.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack14.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack15.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack16.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack17.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack18.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack19.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack20.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          
+          <!-- Duplicate set for seamless infinite scroll -->
+          <!-- These images create the illusion of infinite scroll by duplicating the sequence -->
+          <img
+            src="images/PixxelHack8.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack9.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack11.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack12.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack13.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack14.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack15.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack16.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack17.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack18.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack19.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+          <img
+            src="images/PixxelHack20.jpg"
+            alt="Fashion Photo"
+            class="marquee-image"
+          />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script src="script.js"></script>
-</body>
+    <!-- JavaScript file for interactive functionality -->
+    <script src="script.js"></script>
+  </body>
 </html>

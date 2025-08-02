@@ -1,41 +1,82 @@
+/* ==========================================
+   FASHION PHOTOGRAPHY WEBSITE STYLES
+   ==========================================
+   
+   This stylesheet contains all styling for a responsive
+   fashion photography website with ink spread effects,
+   infinite marquee, and animated elements.
+   
+   Main Features:
+   - Responsive design for all screen sizes
+   - Interactive ink spread effect on hero images
+   - Infinite scrolling marquee
+   - Smooth scroll animations
+   - Warm color theme throughout
+   ========================================== */
+
+/* ======================
+   GLOBAL STYLES
+   ====================== */
+
+/* Base body styling with animated gradient background */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #2c1810;
+  color: #2c1810; /* Dark brown text color */
   width: 100vw;
-  overflow-x: hidden;
-  
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+
   /* Enhanced warm fashion gradient background */
-  background: linear-gradient(140deg, #f8e6d3, #f5d4b8, #e8b788, #d49962, #7c4d28);
-  background-size: 400% 400%;
+  background: linear-gradient(
+    140deg,
+    #f8e6d3, /* Light cream */
+    #f5d4b8, /* Warm beige */
+    #e8b788, /* Golden tan */
+    #d49962, /* Medium brown */
+    #7c4d28  /* Dark brown */
+  );
+  background-size: 400% 400%; /* Large size for smooth animation */
   animation: gradientShift 25s ease infinite;
   position: relative;
 }
 
-/* Subtle gradient animation */
+/* Smooth gradient background animation */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Scroll Animation Styles */
+/* ======================
+   SCROLL ANIMATIONS
+   ====================== */
+
+/* Base state for scroll-triggered elements */
 .scroll-element {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0; /* Hidden initially */
+  transform: translateY(60px) scale(0.95); /* Start from below with slight scale */
+  transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
 }
 
+/* Animation when element enters viewport */
 .scroll-element.animate-in {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(0) scale(1); /* Move to normal position and size */
 }
 
+/* Animation when element exits viewport */
 .scroll-element.animate-out {
-  opacity: 0.3;
-  transform: scale(0.95);
+  opacity: 0;
+  transform: translateY(-40px) scale(0.96); /* Move up slightly when exiting */
+  transition: all 0.6s ease-in; /* Faster exit animation */
 }
 
 .container {
@@ -48,6 +89,7 @@ body {
   padding: 20px;
   padding-top: 80px;
   padding-bottom: 30px;
+  box-sizing: border-box;
 }
 
 /* Image container for ink effect */
@@ -59,6 +101,7 @@ body {
   margin: 0 10px;
   width: 280px;
   height: 350px;
+  flex-shrink: 0;
 }
 
 .card {
@@ -84,17 +127,17 @@ body {
   height: 100%;
   object-fit: cover;
   cursor: none;
-  
+
   /* Completely disable all transforms and transitions */
   transform: none !important;
   transition: none !important;
-  
+
   /* Lighter faded/desaturated initial state - more visible */
   filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
 }
 
 .hero-img::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -128,59 +171,59 @@ body {
   position: absolute;
   pointer-events: none;
   z-index: 2;
-  background: radial-gradient(ellipse, 
-    rgba(30, 30, 30, 0.9) 0%, 
-    rgba(20, 20, 20, 0.7) 20%, 
+  background: radial-gradient(
+    ellipse,
+    rgba(30, 30, 30, 0.9) 0%,
+    rgba(20, 20, 20, 0.7) 20%,
     rgba(40, 40, 40, 0.5) 40%,
     rgba(60, 60, 60, 0.3) 60%,
     rgba(80, 80, 80, 0.15) 80%,
-    transparent 95%);
+    transparent 95%
+  );
   mix-blend-mode: multiply;
   transform: scale(0);
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   filter: blur(2px);
-  
+
   /* Irregular ink-like shape */
   border-radius: 45% 55% 70% 30% / 60% 40% 80% 20%;
-  
+
   /* Add ink texture using pseudo-elements */
   position: relative;
 }
 
 .ink-spread::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -20%;
   left: -20%;
   width: 140%;
   height: 140%;
-  background: radial-gradient(circle at 30% 70%, 
-    rgba(0, 0, 0, 0.4) 0%, 
-    transparent 30%),
-    radial-gradient(circle at 80% 20%, 
-    rgba(0, 0, 0, 0.3) 0%, 
-    transparent 25%),
-    radial-gradient(circle at 60% 90%, 
-    rgba(0, 0, 0, 0.2) 0%, 
-    transparent 20%);
+  background: radial-gradient(
+      circle at 30% 70%,
+      rgba(0, 0, 0, 0.4) 0%,
+      transparent 30%
+    ),
+    radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.3) 0%, transparent 25%),
+    radial-gradient(circle at 60% 90%, rgba(0, 0, 0, 0.2) 0%, transparent 20%);
   border-radius: 60% 40% 30% 70% / 50% 80% 20% 60%;
   mix-blend-mode: multiply;
   z-index: -1;
 }
 
 .ink-spread::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -10%;
   left: -10%;
   width: 120%;
   height: 120%;
-  background: radial-gradient(circle at 20% 30%, 
-    rgba(0, 0, 0, 0.3) 0%, 
-    transparent 35%),
-    radial-gradient(circle at 90% 80%, 
-    rgba(0, 0, 0, 0.25) 0%, 
-    transparent 30%);
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 35%
+    ),
+    radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.25) 0%, transparent 30%);
   border-radius: 30% 70% 60% 40% / 80% 20% 40% 60%;
   mix-blend-mode: multiply;
   z-index: -1;
@@ -268,15 +311,15 @@ body {
 
 /* Set background images for each reveal layer */
 .image-container:nth-child(1) .color-reveal {
-  background-image: url('images/PixxelHack2.jpg');
+  background-image: url("images/PixxelHack2.jpg");
 }
 
 .image-container:nth-child(2) .color-reveal {
-  background-image: url('images/PixxelHack1.jpg');
+  background-image: url("images/PixxelHack1.jpg");
 }
 
 .image-container:nth-child(3) .color-reveal {
-  background-image: url('images/PixxelHack3.jpg');
+  background-image: url("images/PixxelHack3.jpg");
 }
 
 /* Floating animation removed to stop oscillation */
@@ -287,264 +330,251 @@ body {
   border-radius: 10px;
 }
 
-.secondDiv{
-    height: 400px;
-    width: 100%;
-    background: linear-gradient(135deg, #4a2c17, #6b3d24, #8b4f30, #a86b42);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
+/* Photography Services Cards Section */
+.secondDiv {
+  height: auto;
+  min-height: 500px;
+  width: 100%;
+  background: linear-gradient(135deg, #4a2c17, #6b3d24, #8b4f30, #a86b42);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  padding: 60px 40px;
+  box-sizing: border-box;
+  /* Add animation trigger */
+  animation: sectionFadeIn 1s ease-out forwards;
+}
+
+@keyframes sectionFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .secondDiv::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 2px,
-        rgba(255, 255, 255, 0.03) 2px,
-        rgba(255, 255, 255, 0.03) 4px
-    );
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.03) 2px,
+    rgba(255, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
 }
 
-.card1{
-    background-image: url(images/PixxelHack4.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
+.card1,
+.card2,
+.card3,
+.card4 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 15px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  /* Initial state for scroll animations */
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
 }
 
-.card1::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+.card1 {
+  background-image: url(images/PixxelHack4.jpg);
 }
 
-.card1 h2{
-    z-index: 1;
-    padding-top: 120px;
+.card2 {
+  background-image: url(images/PixxelHack5.jpg);
 }
 
-.card1 p, .card1 button {
-    position: relative;
-    z-index: 1;
+.card3 {
+  background-image: url(images/PixxelHack6.jpg);
 }
 
-.card1 button {
-    background: linear-gradient(135deg, #8b4f30, #a86b42);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+.card4 {
+  background-image: url(images/PixxelHack7.jpg);
 }
 
-.card1 button:hover {
-    background: linear-gradient(135deg, #a86b42, #c9864f);
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+/* Animation classes for scroll-triggered animations */
+.card1.animate-in,
+.card2.animate-in,
+.card3.animate-in,
+.card4.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.card2{
-    background-image: url(images/PixxelHack5.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
+.card1.animate-out,
+.card2.animate-out,
+.card3.animate-out,
+.card4.animate-out {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 0.6s ease-in;
 }
 
-.card2::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover {
+  transform: scale(1.05);
 }
 
-
-.card2 h2{
-    z-index: 1;
-    padding-top: 120px;
-}
-
-.card2 p, .card2 button {
-    position: relative;
-    z-index: 1;
-}
-
-.card2 button {
-    background: linear-gradient(135deg, #6b3d24, #8b4f30);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.card2 button:hover {
-    background: linear-gradient(135deg, #8b4f30, #a86b42);
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-.card3{
-    background-image: url(images/PixxelHack6.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-}
-.card3::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-}
-
-.card3 h2{
-    z-index: 1;
-    padding-top: 120px;
-}
-
-.card3 p, .card3 button {
-    position: relative;
-    z-index: 1;
-}
-
-.card3 button {
-    background: linear-gradient(135deg, #4a2c17, #6b3d24);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.card3 button:hover {
-    background: linear-gradient(135deg, #6b3d24, #8b4f30);
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-.card4{
-    background-image: url(images/PixxelHack7.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 300px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-}
-
+.card1::before,
+.card2::before,
+.card3::before,
 .card4::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  z-index: 1;
 }
 
-.card4 h2{
-    z-index: 1;
-    padding-top: 120px;
+.card1 h2,
+.card2 h2,
+.card3 h2,
+.card4 h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  margin-top: 60px; /* Push title down from center */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  /* Content fade-in animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInContent 0.6s ease-out forwards;
 }
 
-.card4 p, .card4 button {
-    position: relative;
-    z-index: 1;
+.card1 h2 { animation-delay: 0.3s; }
+.card2 h2 { animation-delay: 0.5s; }
+.card3 h2 { animation-delay: 0.7s; }
+.card4 h2 { animation-delay: 0.9s; }
+
+.card1 p,
+.card2 p,
+.card3 p,
+.card4 p {
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInContent 0.6s ease-out forwards;
 }
 
+.card1 p { animation-delay: 0.5s; }
+.card2 p { animation-delay: 0.7s; }
+.card3 p { animation-delay: 0.9s; }
+.card4 p { animation-delay: 1.1s; }
+
+.card1 button,
+.card2 button,
+.card3 button,
 .card4 button {
-    background: linear-gradient(135deg, #a86b42, #c9864f);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(135deg, #8b4f30, #a86b42);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  /* Button fade-in animation */
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  animation: fadeInButton 0.6s ease-out forwards;
 }
 
+.card1 button { animation-delay: 0.7s; }
+.card2 button { animation-delay: 0.9s; }
+.card3 button { animation-delay: 1.1s; }
+.card4 button { animation-delay: 1.3s; }
+
+@keyframes fadeInContent {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card1 button:hover,
+.card2 button:hover,
+.card3 button:hover,
 .card4 button:hover {
-    background: linear-gradient(135deg, #c9864f, #e8a866);
-    transform: translateY(-2px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #a86b42, #c9864f);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design for Cards */
+@media screen and (max-width: 1200px) {
+  .secondDiv {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 40px 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .secondDiv {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 15px;
+  }
+  
+  .card1, .card2, .card3, .card4 {
+    height: 300px;
+  }
 }
 
 /* Navbar */
@@ -552,7 +582,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
+  padding: 15px 30px;
   background: rgba(248, 230, 211, 0.95);
   position: fixed;
   top: 0;
@@ -560,13 +590,14 @@ body {
   width: 100%;
   z-index: 99999;
   box-shadow: 0 4px 20px rgba(76, 44, 23, 0.15);
-  -webkit-backdrop-filter:blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   border-bottom: 2px solid rgba(139, 79, 48, 0.2);
+  box-sizing: border-box;
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #4a2c17;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -575,17 +606,20 @@ body {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
   text-decoration: none;
-  padding: 10px 24px;
+  padding: 8px 16px;
   border-radius: 50px;
   background: linear-gradient(135deg, #6b3d24, #8b4f30);
   color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .nav-links li a:hover {
@@ -595,8 +629,8 @@ body {
   transform: translateY(-1px);
 }
 
-#lastAnchorLink{
-  margin-right: 100px;
+#lastAnchorLink {
+  margin-right: 0;
 }
 
 /* Container Section */
@@ -613,7 +647,7 @@ body {
 /* Optional: Add rounded image edges */
 .card img {
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -623,17 +657,18 @@ body {
 .promo-section {
   width: 100%;
   background: rgba(248, 230, 211, 0.85);
-  padding: 100px 60px;
+  padding: 60px 30px;
   text-align: center;
   color: #4a2c17;
-  -webkit-backdrop-filter:blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-top: 2px solid rgba(139, 79, 48, 0.2);
   border-bottom: 2px solid rgba(139, 79, 48, 0.2);
+  box-sizing: border-box;
 }
 
 .promo-section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   background: linear-gradient(135deg, #6b3d24, #a86b42);
   -webkit-background-clip: text;
@@ -642,23 +677,29 @@ body {
 }
 
 .promo-section p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 .ripple-section {
   position: relative;
   background: linear-gradient(to bottom right, #d8bfae, #f6e7d8);
   overflow: hidden;
-  padding: 80px 0 60px 0;
+  padding: 60px 20px 40px 20px;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 /* Common ripple style */
 .ripple {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 20%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 20%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 0;
   animation: ripple 12s ease-in-out infinite;
@@ -703,77 +744,1563 @@ body {
   }
 }
 
-.afterscroll{
+.afterscroll {
   height: 55vh;
   width: 100%;
-  background: linear-gradient(135deg, #3d1f0f, #4a2c17, #6b3d24);
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c, #3d3d3d);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
+  
+  /* Add sophisticated background image */
+  background-image: 
+    linear-gradient(45deg, rgba(212, 153, 98, 0.05) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(212, 153, 98, 0.05) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(212, 153, 98, 0.05) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(212, 153, 98, 0.05) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  
+  /* Add animated texture overlay */
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  }
+  50% {
+    background-position: 30px 30px, 30px 60px, 60px 0px, 0px 30px;
+  }
 }
 
 .afterscroll::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(168, 107, 66, 0.1) 0%, transparent 70%);
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(212, 153, 98, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(124, 77, 40, 0.12) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
+  pointer-events: none;
+  animation: atmosphericGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes atmosphericGlow {
+  0% {
+    opacity: 0.6;
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02) rotate(0.5deg);
+  }
+}
+
+.afterscroll::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    conic-gradient(from 0deg at 50% 50%, 
+      transparent 0deg, 
+      rgba(212, 153, 98, 0.08) 60deg, 
+      transparent 120deg, 
+      rgba(124, 77, 40, 0.06) 180deg, 
+      transparent 240deg, 
+      rgba(212, 153, 98, 0.08) 300deg, 
+      transparent 360deg);
+  animation: backgroundRotate 40s linear infinite;
   pointer-events: none;
 }
 
-/* Marquee Container */
-.marquee-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-/* Marquee Track */
-.marquee-track {
-  display: flex;
-  animation: marqueeScroll 60s linear infinite;
-  gap: 30px;
-  will-change: transform;
-}
-
-/* Pause animation on hover */
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* Marquee Images */
-.marquee-image {
-  height: 320px;
-  width: 420px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover effect for individual images */
-.marquee-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-  z-index: 10;
-  position: relative;
-}
-
-/* Marquee Animation */
-@keyframes marqueeScroll {
+@keyframes backgroundRotate {
   0% {
-    transform: translateX(0);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translateX(-50%);
+    transform: rotate(360deg);
   }
 }
 
+/* ======================
+   INFINITE MARQUEE GALLERY
+   ======================
+   
+   This section creates an infinite horizontal scrolling
+   gallery of fashion photographs with interactive hover
+   effects and smooth continuous animation.
+   ====================== */
+
+/* Main marquee container - controls overflow and layout */
+.marquee-container {
+  width: 100%; /* Full container width */
+  height: 100%; /* Full container height */
+  overflow: hidden; /* Hide overflowing images for smooth scroll effect */
+  position: relative;
+  display: flex;
+  align-items: center; /* Vertically center the scrolling track */
+  z-index: 10; /* Ensure images appear above background effects */
+}
+
+/* Scrolling track that contains all images */
+.marquee-track {
+  display: flex; /* Horizontal layout for images */
+  animation: marqueeScroll 60s linear infinite; /* Continuous 60-second scroll cycle */
+  gap: 35px; /* Increased space between images */
+  will-change: transform; /* Optimize for smooth animation performance */
+  padding: 0 20px; /* Add padding for better spacing */
+}
+
+/* Pause the infinite scroll when user hovers over container */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused; /* Allow users to examine images */
+}
+
+/* Individual marquee image styling */
+.marquee-image {
+  height: 320px; /* Fixed height for consistent layout */
+  width: 420px; /* Fixed width maintaining aspect ratio */
+  object-fit: cover; /* Maintain aspect ratio while filling container */
+  border-radius: 20px; /* Enhanced rounded corners */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(212, 153, 98, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1); /* Multi-layer shadow with border */
+  flex-shrink: 0; /* Prevent images from shrinking in flex layout */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Enhanced smooth transitions */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle overlay to images */
+.marquee-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg, 
+    rgba(212, 153, 98, 0.05) 0%, 
+    transparent 50%, 
+    rgba(124, 77, 40, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Interactive hover effect for individual images */
+.marquee-image:hover {
+  transform: scale(1.08) translateY(-5px); /* Enhanced zoom with lift effect */
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.7),
+    0 0 0 2px rgba(212, 153, 98, 0.3),
+    0 0 20px rgba(212, 153, 98, 0.2); /* Enhanced golden glow effect */
+  z-index: 20; /* Bring hovered image to front */
+  position: relative; /* Enable z-index positioning */
+}
+
+.marquee-image:hover::before {
+  opacity: 1;
+}
+
+/* Infinite horizontal scroll animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0); /* Start at original position */
+  }
+  100% {
+    transform: translateX(-50%); /* Move left by 50% to create seamless loop */
+  }
+}
+
+/* ======================
+   RESPONSIVE DESIGN SYSTEM
+   ======================
+   
+   Mobile-first responsive design with progressive
+   enhancement. Images progressively hide on smaller
+   screens (3 → 2 → 1) for optimal mobile experience.
+   
+   Breakpoints:
+   - Mobile: 320px - 767px (1 image)
+   - Tablet: 768px - 1023px (2 images)  
+   - Desktop: 1024px+ (3 images)
+   ====================== */
+
+/* ======================
+   TABLET RESPONSIVE (768px and below)
+   ====================== */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links li a {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .container {
+    padding-top: 60px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .card {
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .image-container {
+    width: 200px;
+    height: 250px;
+    margin: 0 2px;
+  }
+
+  /* Hide the third image on tablets to fit better */
+  .image-container:nth-child(3) {
+    display: none;
+  }
+
+  .promo-section {
+    padding: 40px 20px;
+  }
+
+  .promo-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .promo-section p {
+    font-size: 0.9rem;
+  }
+
+  .secondDiv {
+    gap: 15px;
+    padding: 30px 15px;
+  }
+
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    width: 250px;
+    height: 280px;
+    margin: 10px 0;
+  }
+
+  .card1 h2,
+  .card2 h2,
+  .card3 h2,
+  .card4 h2 {
+    font-size: 1.3rem;
+    padding-top: 80px; /* Adjusted for mobile - push title down but not too much */
+    margin-top: 0; /* Reset margin for mobile */
+  }
+
+  .card1 p,
+  .card2 p,
+  .card3 p,
+  .card4 p {
+    font-size: 0.9rem;
+  }
+
+  .marquee-image {
+    height: 250px;
+    width: 320px;
+    border-radius: 15px; /* Reduced border radius for mobile */
+  }
+  
+  .marquee-track {
+    gap: 25px; /* Reduced gap for mobile */
+    padding: 0 15px; /* Reduced padding */
+  }
+  
+  .marquee-image:hover {
+    transform: scale(1.05) translateY(-3px); /* Reduced hover effect for mobile */
+  }
+
+  .afterscroll {
+    height: 50vh;
+    background-size: 40px 40px; /* Smaller pattern on mobile */
+  }
+  
+  .afterscroll::before,
+  .afterscroll::after {
+    opacity: 0.7; /* Reduced effect intensity on mobile */
+  }
+
+  .ripple-section {
+    padding: 40px 15px 30px 15px;
+  }
+
+  .r1,
+  .r2,
+  .r3 {
+    display: none;
+  }
+}
+
+/* Mobile Styles (480px and below) */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 8px 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links li a {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .container {
+    padding-top: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 20vh;
+  }
+
+  .card {
+    width: 100%;
+    gap: 0;
+    justify-content: center;
+  }
+
+  .image-container {
+    width: 150px;
+    height: 200px;
+    margin: 0 1px;
+  }
+
+  /* Hide second and third images on mobile, show only first */
+  .image-container:nth-child(2),
+  .image-container:nth-child(3) {
+    display: none;
+  }
+
+  .promo-section {
+    padding: 30px 15px;
+  }
+
+  .promo-section h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .promo-section p {
+    font-size: 0.85rem;
+  }
+
+  .secondDiv {
+    gap: 10px;
+    padding: 20px 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    width: 90%;
+    max-width: 280px;
+    height: 250px;
+    margin: 5px 0;
+  }
+
+  .card1 h2,
+  .card2 h2,
+  .card3 h2,
+  .card4 h2 {
+    font-size: 1.2rem;
+    padding-top: 70px; /* Adjusted for medium mobile screens */
+    margin-top: 0; /* Reset margin for mobile */
+  }
+
+  .card1 p,
+  .card2 p,
+  .card3 p,
+  .card4 p {
+    font-size: 0.8rem;
+  }
+
+  .card1 button,
+  .card2 button,
+  .card3 button,
+  .card4 button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .marquee-image {
+    height: 200px;
+    width: 260px;
+    border-radius: 12px; /* Smaller border radius for small screens */
+  }
+  
+  .marquee-track {
+    gap: 20px; /* Further reduced gap */
+    padding: 0 10px; /* Minimal padding */
+  }
+
+  .marquee-track {
+    gap: 20px;
+  }
+
+  .afterscroll {
+    height: 40vh;
+  }
+
+  .ripple-section {
+    padding: 30px 10px 20px 10px;
+  }
+}
+
+/* Extra Small Mobile (320px and below) */
+@media screen and (max-width: 320px) {
+  .navbar {
+    padding: 5px 10px;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .nav-links li a {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  .image-container {
+    width: 140px;
+    height: 180px;
+  }
+
+  /* Show only the first image on extra small screens */
+  .image-container:nth-child(2),
+  .image-container:nth-child(3) {
+    display: none;
+  }
+
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    width: 95%;
+    height: 220px;
+  }
+
+  .card1 h2,
+  .card2 h2,
+  .card3 h2,
+  .card4 h2 {
+    font-size: 1rem;
+    padding-top: 50px; /* Adjusted for extra small screens */
+    margin-top: 0; /* Reset margin for mobile */
+  }
+
+  .card1 p,
+  .card2 p,
+  .card3 p,
+  .card4 p {
+    font-size: 0.75rem;
+  }
+
+  .marquee-image {
+    height: 160px;
+    width: 200px;
+    border-radius: 10px; /* Even smaller border radius for very small screens */
+  }
+  
+  .marquee-track {
+    gap: 15px; /* Minimal gap for very small screens */
+  }
+  
+  .afterscroll {
+    background-size: 30px 30px; /* Very small pattern for tiny screens */
+  }
+
+  .promo-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .promo-section p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Large Desktop Styles (1200px and above) */
+@media screen and (min-width: 1200px) {
+  .navbar {
+    padding: 20px 60px;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links li a {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+
+  .image-container {
+    width: 320px;
+    height: 400px;
+  }
+
+  .promo-section {
+    padding: 100px 60px;
+  }
+
+  .promo-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .promo-section p {
+    font-size: 1.1rem;
+  }
+
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    width: 320px;
+    height: 350px;
+  }
+
+  .marquee-image {
+    height: 350px;
+    width: 450px;
+    border-radius: 25px; /* Larger border radius for large screens */
+  }
+  
+  .marquee-track {
+    gap: 40px; /* Larger gap for large screens */
+    padding: 0 30px; /* More padding for large screens */
+  }
+
+  .afterscroll {
+    height: 60vh;
+    background-size: 80px 80px; /* Larger pattern for large screens */
+  }
+}
+
+/* ======================
+   NEW LANDING PAGE SECTIONS STYLES
+   ====================== */
+
+/* Brand Story Section with Background Image */
+.brand-story {
+  padding: 120px 20px;
+  margin: 0; /* Remove spacing before and after */
+  position: relative;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Background image with PixxelHack21 */
+  background-image: url('images/PixxelHack21.jpg');
+  background-size: cover;
+  background-position: center;
+  
+  /* Enhanced scroll animations */
+  opacity: 0;
+  transform: translateY(90px) scale(0.93);
+  transition: all 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced brand story entrance animation */
+.brand-story.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Enhanced brand story exit animation */
+.brand-story.animate-out {
+  opacity: 0;
+  transform: translateY(-70px) scale(0.95);
+  transition: all 0.8s ease-in;
+}
+
+/* Extend brand story properties */
+.brand-story {
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Parallax effect */
+}
+
+/* Black overlay above background image */
+.story-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Black overlay with 70% opacity */
+  z-index: 1;
+}
+
+.story-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+.story-text h2 {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  color: white; /* White text for contrast */
+  line-height: 1.2;
+  font-weight: 700;
+  
+  /* Enhanced text shadow for depth */
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.6),
+    6px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.lead-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  
+  /* Text shadow for readability */
+  text-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.8),
+    2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.story-text p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9); /* Light transparent white */
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* Subtle text shadow */
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.story-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1); /* Subtle background for stats */
+  padding: 20px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white; /* White text for contrast */
+  margin-bottom: 10px;
+  
+  /* Text shadow for stats numbers */
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9); /* Light white */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  /* Subtle text shadow for labels */
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Featured Work Section */
+.featured-work {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  
+  /* Background image with PixxelHack23 */
+  background-image: url('images/PixxelHack23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* Enhanced scroll animations */
+  opacity: 0;
+  transform: translateY(80px) scale(0.94);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced featured work entrance animation */
+.featured-work.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Enhanced featured work exit animation */
+.featured-work.animate-out {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.96);
+  transition: all 0.7s ease-in;
+}
+
+.featured-work:hover {
+  transform: none !important;
+}
+
+.featured-work::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/PixxelHack23.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* White overlay above background image with subtle golden tint */
+.featured-work::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9); /* Clean white overlay */
+  z-index: 1;
+}
+
+.featured-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+.featured-work h2 {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #8B4513, #DAA520, #FFD700, #8B4513);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldenShimmer 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(218, 165, 32, 0.3);
+}
+
+@keyframes goldenShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Force 4 equal columns */
+  gap: 30px; /* Reduced gap for better fit */
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Above overlay */
+}
+
+.publication-item {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px; /* Reduced padding for better fit */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  /* Remove all hover effects completely */
+  transition: none !important;
+  
+  /* Initial state for staggered animation */
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
+/* Staggered animation for publication items */
+.featured-work.animate-in .publication-item:nth-child(1) {
+  animation: publicationFadeIn 0.6s ease-out 0.3s forwards;
+}
+
+.featured-work.animate-in .publication-item:nth-child(2) {
+  animation: publicationFadeIn 0.6s ease-out 0.5s forwards;
+}
+
+.featured-work.animate-in .publication-item:nth-child(3) {
+  animation: publicationFadeIn 0.6s ease-out 0.7s forwards;
+}
+
+.featured-work.animate-in .publication-item:nth-child(4) {
+  animation: publicationFadeIn 0.6s ease-out 0.9s forwards;
+}
+
+@keyframes publicationFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.publication-item:hover {
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1) !important;
+}
+
+.pub-logo {
+  font-size: 1.8rem; /* Slightly smaller for better fit */
+  font-weight: 900;
+  background: linear-gradient(135deg, #8B4513, #DAA520, #FFD700, #8B4513);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldenShimmer 4s ease-in-out infinite;
+  margin-bottom: 15px; /* Reduced margin */
+  letter-spacing: 2px;
+  /* Remove hover effects */
+  transition: none !important;
+  transform: none !important;
+}
+
+.pub-logo:hover {
+  background: linear-gradient(135deg, #8B4513, #DAA520, #FFD700, #8B4513) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: goldenShimmer 4s ease-in-out infinite !important;
+  transform: none !important;
+}
+
+.publication-item p {
+  font-style: italic;
+  color: #5a3a26;
+  line-height: 1.6;
+  font-size: 0.95rem; /* Slightly smaller text for better fit */
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  
+  /* Enhanced scroll animations */
+  opacity: 0;
+  transform: translateY(70px) scale(0.94);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced testimonials entrance animation */
+.testimonials.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Enhanced testimonials exit animation */
+.testimonials.animate-out {
+  opacity: 0;
+  transform: translateY(-50px) scale(0.96);
+  transition: all 0.7s ease-in;
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/PixxelHack22.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.testimonials::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Black overlay */
+  z-index: 1;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials h2 {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 25px; /* Reduced padding */
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  z-index: 2;
+  /* Remove all hover effects */
+  transition: none !important;
+  transform: none !important;
+  /* Reduced height for testimonial cards */
+  min-height: 220px; /* Reduced from 280px */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* Initial state for staggered animation */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
+
+/* Staggered animation for testimonial cards */
+.testimonials.animate-in .testimonial-card:nth-child(1) {
+  animation: testimonialFadeIn 0.7s ease-out 0.2s forwards;
+}
+
+.testimonials.animate-in .testimonial-card:nth-child(2) {
+  animation: testimonialFadeIn 0.7s ease-out 0.4s forwards;
+}
+
+.testimonials.animate-in .testimonial-card:nth-child(3) {
+  animation: testimonialFadeIn 0.7s ease-out 0.6s forwards;
+}
+
+@keyframes testimonialFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.testimonial-card:hover {
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.testimonial-text {
+  font-size: 1rem; /* Slightly reduced font size */
+  line-height: 1.6; /* Reduced line height */
+  color: #5a3a26;
+  margin-bottom: 20px; /* Reduced margin */
+  font-style: italic;
+  flex-grow: 1; /* Allow text to take available space */
+}
+
+.testimonial-author {
+  border-top: 2px solid rgba(212, 153, 98, 0.3);
+  padding-top: 15px; /* Reduced padding */
+  margin-top: auto; /* Push author to bottom */
+}
+
+.author-name {
+  display: block;
+  font-weight: 600;
+  color: #7c4d28;
+  margin-bottom: 5px;
+}
+
+.author-title {
+  font-size: 0.9rem;
+  color: #8a6040;
+}
+
+/* Process Section */
+.process-section {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  position: relative;
+  overflow: hidden;
+  
+  /* Enhanced scroll animations */
+  opacity: 0;
+  transform: translateY(85px) scale(0.93);
+  transition: all 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced process section entrance animation */
+.process-section.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Enhanced process section exit animation */
+.process-section.animate-out {
+  opacity: 0;
+  transform: translateY(-65px) scale(0.95);
+  transition: all 0.8s ease-in;
+}
+
+.process-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/PixxelHack24.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.process-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.85), 
+    rgba(255, 248, 220, 0.9), 
+    rgba(255, 235, 170, 0.85)
+  ); /* White overlay with golden tints */
+  z-index: 1;
+}
+
+.process-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.process-section h2 {
+  font-size: 3rem;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #8B4513, #DAA520, #FFD700, #8B4513);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldenShimmer 3s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(218, 165, 32, 0.3);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Force 4 equal columns */
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.process-step {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  /* Remove all hover effects */
+  transition: none !important;
+  transform: none !important;
+  
+  /* Initial state for staggered animation */
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+}
+
+/* Staggered animation for process steps */
+.process-section.animate-in .process-step:nth-child(1) {
+  animation: processFadeIn 0.8s ease-out 0.2s forwards;
+}
+
+.process-section.animate-in .process-step:nth-child(2) {
+  animation: processFadeIn 0.8s ease-out 0.4s forwards;
+}
+
+.process-section.animate-in .process-step:nth-child(3) {
+  animation: processFadeIn 0.8s ease-out 0.6s forwards;
+}
+
+.process-section.animate-in .process-step:nth-child(4) {
+  animation: processFadeIn 0.8s ease-out 0.8s forwards;
+}
+
+@keyframes processFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Shimmer animation for step numbers */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.process-step:hover {
+  transform: none !important;
+  box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1) !important;
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #d49962;
+  margin-bottom: 20px;
+  display: block;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #7c4d28 0%,
+    #d49962 25%,
+    #f4d03f 50%,
+    #d49962 75%,
+    #7c4d28 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 10s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(212, 153, 98, 0.5);
+}
+
+.process-step h3 {
+  font-size: 1.5rem;
+  color: #7c4d28;
+  margin-bottom: 15px;
+}
+
+.process-step p {
+  color: #5a3a26;
+  line-height: 1.6;
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #7c4d28, #d49962);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Background image with PixxelHack25 */
+  background-image: url('images/PixxelHack25.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  /* Enhanced scroll animations */
+  opacity: 0;
+  transform: translateY(75px) scale(0.94);
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Black overlay for CTA section */
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Black overlay */
+  z-index: 1;
+}
+
+/* Ensure content is above overlay */
+.cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced CTA section entrance animation */
+.cta-section.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Enhanced CTA section exit animation */
+.cta-section.animate-out {
+  opacity: 0;
+  transform: translateY(-55px) scale(0.96);
+  transition: all 0.7s ease-in;
+}
+
+.cta-section h2 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.cta-section p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-primary, .cta-secondary {
+  padding: 15px 35px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-primary {
+  background: white;
+  color: #7c4d28;
+  border: 2px solid white;
+}
+
+.cta-primary:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+  border-color: #d49962;
+}
+
+.cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.cta-secondary:hover {
+  background: white;
+  color: #7c4d28;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+  border-color: white;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.contact-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* ======================
+   RESPONSIVE STYLES FOR NEW SECTIONS
+   ====================== */
+
+/* Very Small Mobile (480px and below) */
+@media screen and (max-width: 480px) {
+  /* Show only 1 publication on very small screens */
+  .publication-item:nth-child(2),
+  .publication-item:nth-child(3),
+  .publication-item:nth-child(4) {
+    display: none;
+  }
+  
+  .publications-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  
+  .featured-work h2 {
+    font-size: 2rem;
+  }
+  
+  .cta-section {
+    padding: 60px 10px;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-primary, .cta-secondary {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  /* Brand story section mobile adjustments */
+  .brand-story {
+    padding: 80px 15px;
+    background-attachment: scroll; /* Disable parallax on mobile for performance */
+  }
+  
+  .story-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .lead-text {
+    font-size: 1.2rem;
+  }
+  
+  .story-stats {
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat {
+    padding: 15px 25px;
+    margin-bottom: 10px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .featured-work h2,
+  .testimonials h2,
+  .process-section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.8rem;
+  }
+  
+  .cta-section {
+    padding: 80px 15px;
+    background-attachment: scroll; /* Disable parallax on mobile for performance */
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .cta-primary, .cta-secondary {
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .cta-primary:hover, .cta-secondary:hover {
+    transform: translateY(-3px) scale(1.02); /* Reduced hover effect for mobile */
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Hide last 2 publications on mobile - show only VOGUE and ELLE */
+  .publication-item:nth-child(3),
+  .publication-item:nth-child(4) {
+    display: none;
+  }
+  
+  .publications-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 20px;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Tablet Responsive */
+@media screen and (max-width: 1023px) {
+  .story-text h2 {
+    font-size: 3rem;
+  }
+  
+  /* Hide last publication on tablet - show 3 publications */
+  .publication-item:nth-child(4) {
+    display: none;
+  }
+  
+  .publications-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    gap: 25px;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .process-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
