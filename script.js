@@ -1,8 +1,8 @@
 // Enhanced Scroll Animation Script with Ink Spread Effect
 document.addEventListener('DOMContentLoaded', function() {
-    const scrollElements = document.querySelectorAll('.scroll-element');
+    const scrollElements = document.querySelectorAll('.scroll-element:not(.hero-img)');
     
-    // Intersection Observer for dynamic scroll animations
+    // Intersection Observer for dynamic scroll animations (excluding hero images)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             const element = entry.target;
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rootMargin: '0px 0px -50px 0px' // Start animation 50px before element is fully visible
     });
 
-    // Observe all scroll elements
+    // Observe all scroll elements except hero images
     scrollElements.forEach(element => {
         observer.observe(element);
     });
@@ -85,22 +85,32 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isHovering) return;
             
             const rect = container.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Check if mouse is within image boundaries
+            if (x < 0 || x > rect.width || y < 0 || y > rect.height) {
+                colorReveal.style.clipPath = 'circle(0px at 50% 50%)';
+                inkSpread.classList.remove('active');
+                return;
+            }
+            
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
             
             // Create ink spread effect with irregular shape
             const radius = Math.min(rect.width, rect.height) * 0.18;
-            colorReveal.style.clipPath = `circle(${radius}px at ${x}% ${y}%)`;
+            colorReveal.style.clipPath = `circle(${radius}px at ${xPercent}% ${yPercent}%)`;
             
             // Position main ink spread element
-            inkSpread.style.left = `${e.clientX - rect.left - 60}px`;
-            inkSpread.style.top = `${e.clientY - rect.top - 60}px`;
+            inkSpread.style.left = `${x - 60}px`;
+            inkSpread.style.top = `${y - 60}px`;
             inkSpread.style.width = '120px';
             inkSpread.style.height = '120px';
             
             // Create additional smaller ink droplets for realistic effect
             if (Math.random() > 0.7) { // 30% chance to create droplet
-                createInkDroplet(container, e.clientX - rect.left, e.clientY - rect.top);
+                createInkDroplet(container, x, y);
             }
             
             // Trigger ink spread animation

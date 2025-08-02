@@ -57,8 +57,8 @@ body {
   overflow: hidden;
   border-radius: 15px;
   margin: 0 10px;
-  width: auto;
-  height: auto;
+  width: 280px;
+  height: 350px;
 }
 
 .card {
@@ -76,21 +76,18 @@ body {
 .hero-img {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0.9;
-  position: relative;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   cursor: none;
   
-  /* Responsive sizing for one row display - increased height */
-  width: 280px;
-  height: 350px;
-  object-fit: cover;
-  flex-shrink: 0;
-  
-  /* Override scroll-element transforms and transitions - keep completely static */
+  /* Completely disable all transforms and transitions */
   transform: none !important;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: none !important;
   
   /* Lighter faded/desaturated initial state - more visible */
   filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
@@ -105,20 +102,20 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.15);
   z-index: 1;
-  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .hero-img.animate-in {
   opacity: 1;
   transform: none !important;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: none !important;
 }
 
 .hero-img.animate-out {
-  opacity: 0.5;
-  filter: grayscale(90%) brightness(0.5) contrast(0.7);
+  opacity: 1;
+  filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
   transform: none !important;
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: none !important;
 }
 
 /* Custom cursor for hero images */
@@ -266,6 +263,7 @@ body {
   background-size: cover;
   background-position: center;
   border-radius: 15px;
+  pointer-events: none;
 }
 
 /* Set background images for each reveal layer */
