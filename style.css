@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 
   /* Elegant soft glow gradient background */
-  background: linear-gradient(140deg, #f3cba8, #f5b98b, #e7a155, #58310e);
+  background: linear-gradient(140deg, #e09350, #d37731, #925411, #58310e);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   position: relative;
@@ -202,5 +202,19 @@ body {
   background: linear-gradient(to bottom right, #f5e8dc, #e9d3c5);
   overflow: hidden;
   padding: 120px 0;
+}
+
+#fullpage .section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7e7dd;
+}
+#fullpage .section img {
+  max-height: 90vh;
+  width: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
 }
 
