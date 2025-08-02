@@ -18,24 +18,24 @@
    GLOBAL STYLES
    ====================== */
 
-/* Base body styling with animated gradient background */
+/* Base body styling with modern gradient background */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #2c1810; /* Dark brown text color */
+  color: #e8e8e8; /* Light text for dark theme */
   width: 100vw;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 
-  /* Enhanced warm fashion gradient background */
+  /* Modern dark gradient background */
   background: linear-gradient(
     140deg,
-    #f8e6d3, /* Light cream */
-    #f5d4b8, /* Warm beige */
-    #e8b788, /* Golden tan */
-    #d49962, /* Medium brown */
-    #7c4d28  /* Dark brown */
+    #0f0f0f, 
+    #1a1a1a, 
+    #2c2c2c, 
+    #1e1e1e, 
+    #0a0a0a  
   );
   background-size: 400% 400%; /* Large size for smooth animation */
   animation: gradientShift 25s ease infinite;
@@ -335,7 +335,7 @@ body {
   height: auto;
   min-height: 500px;
   width: 100%;
-  background: linear-gradient(135deg, #4a2c17, #6b3d24, #8b4f30, #a86b42);
+  background: linear-gradient(135deg, #1e1e1e, #2c2c2c, #1a1a1a);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -504,7 +504,7 @@ body {
 .card4 button {
   position: relative;
   z-index: 2;
-  background: linear-gradient(135deg, #8b4f30, #a86b42);
+  background: linear-gradient(135deg, #DAA520, #B8860B);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -551,9 +551,9 @@ body {
 .card2 button:hover,
 .card3 button:hover,
 .card4 button:hover {
-  background: linear-gradient(135deg, #a86b42, #c9864f);
+  background: linear-gradient(135deg, #FFD700, #DAA520);
   transform: translateY(-2px);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 6px 16px rgba(218, 165, 32, 0.4);
 }
 
 /* Responsive Design for Cards */
@@ -582,55 +582,41 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  background: rgba(248, 230, 211, 0.95);
+  padding: 20px;
+  background: rgba(15, 15, 15, 0.95);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 99999;
-  box-shadow: 0 4px 20px rgba(76, 44, 23, 0.15);
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(218, 165, 32, 0.2);
   box-sizing: border-box;
 }
 
 .logo {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: #4a2c17;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: #DAA520; /* Golden accent */
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 15px;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
 
 .nav-links li a {
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, #6b3d24, #8b4f30);
-  color: #fff;
+  color: #e8e8e8;
   font-weight: 500;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  background: linear-gradient(135deg, #f8e6d3, #f5d4b8);
-  color: #4a2c17;
-  box-shadow: 0 4px 12px rgba(139, 79, 48, 0.3);
-  transform: translateY(-1px);
-}
-
-#lastAnchorLink {
-  margin-right: 0;
+  color: #DAA520;
 }
 
 /* Container Section */
@@ -656,24 +642,18 @@ body {
 }
 .promo-section {
   width: 100%;
-  background: rgba(248, 230, 211, 0.85);
-  padding: 60px 30px;
+  background: rgba(26, 26, 26, 0.95);
+  padding: 60px 20px;
   text-align: center;
-  color: #4a2c17;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-top: 2px solid rgba(139, 79, 48, 0.2);
-  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
-  box-sizing: border-box;
+  color: #e8e8e8;
+  border-top: 1px solid rgba(218, 165, 32, 0.2);
+  border-bottom: 1px solid rgba(218, 165, 32, 0.2);
 }
 
 .promo-section h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #6b3d24, #a86b42);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #DAA520;
 }
 
 .promo-section p {
@@ -681,10 +661,11 @@ body {
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+  color: #b8b8b8;
 }
 .ripple-section {
   position: relative;
-  background: linear-gradient(to bottom right, #d8bfae, #f6e7d8);
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c, #1e1e1e);
   overflow: hidden;
   padding: 60px 20px 40px 20px;
   z-index: 1;
@@ -714,10 +695,10 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  color: #2c1810;
+  color: #e8e8e8;
   width: 100vw;
   overflow-x: hidden;
-  background: linear-gradient(140deg, #e09350, #d37731, #925411, #58310e);
+  background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #2c2c2c, #1e1e1e);
   background-size: 400% 400%;
   animation: gradientShift 25s ease infinite;
   position: relative;
@@ -965,7 +946,7 @@ body {
 
 .ripple-section {
   position: relative;
-  background: linear-gradient(to bottom right, #d8bfae, #f6e7d8);
+  background: linear-gradient(135deg, #1a1a1a, #2c2c2c, #1e1e1e);
   overflow: hidden;
   padding: 80px 0 60px;
   z-index: 1;
