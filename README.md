@@ -55,6 +55,24 @@ PixxelHack-Webathon-1.0/
 🔗 **[Live Deployed Link](#https://vishayadav.github.io/PixxelHack-Webathon-1.0/)**  
 
 ---
+## 🏷️ Topics
+
+- Fashion Web Design  
+- Landing Page UI  
+- Frontend Development  
+- Responsive Web Design  
+- HTML CSS JavaScript  
+- Pixel Perfect Layout  
+- Image Grid  
+- Hover Effects  
+- Infinite Marquee  
+- PixxelHack Webathon  
+- Static Website  
+- Web Design Replication  
+- Clean Code  
+- Accessible HTML  
+- Modern CSS  
+
 
 
 ## 📌 How to Run Locally
