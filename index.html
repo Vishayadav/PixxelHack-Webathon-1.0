@@ -15,16 +15,16 @@
       <div class="logo">FashionHaus</div>
       <!-- Navigation menu items -->
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Collections</a></li>
-        <li><a href="#" id="lastAnchorLink">Contact</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#contact" id="lastAnchorLink">Contact</a></li>
       </ul>
     </nav>
 
     <!-- Hero Section with Ripple Background Effects -->
-    <section class="ripple-section">
+    <section class="ripple-section" id="home">
       <!-- Animated ripple effect elements -->
       <span class="ripple r1"></span>
       <span class="ripple r2"></span>
@@ -83,7 +83,7 @@
     </section>
 
     <!-- Brand Story Section with Background Image -->
-    <section class="brand-story scroll-element" data-delay="100">
+    <section class="brand-story scroll-element" data-delay="100" id="about">
       <div class="story-bg-overlay"></div>
       <div class="story-container">
         <div class="story-text">
@@ -134,19 +134,19 @@
     </section>
 
     <!-- Photography Services Cards Section -->
-    <div class="secondDiv">
+    <div class="secondDiv" id="collections">
       <!-- Card 1: Fashion Editorial Photography -->
       <div class="card1 scroll-element">
         <h2>Fashion Editorial Photography</h2>
         <p>Visual symphony where fashion meets storytelling.</p>
-        <button>Learn More</button>
+        <button onclick="window.open('editorial.html', '_blank')">Learn More</button>
       </div>
 
       <!-- Card 2: Lifestyle Portrait Photography -->
       <div class="card2 scroll-element">
         <h2>Lifestyle Portrait Photography</h2>
         <p>Where real-life grace meets curated stillness.</p>
-        <button>Learn More</button>
+        <button onclick="window.open('lifestyle.html', '_blank')">Learn More</button>
       </div>
 
 
@@ -154,14 +154,14 @@
       <div class="card3 scroll-element">
         <h2>Studio Portrait Photography</h2>
         <p>Precision meets poise in perfect lighting.</p>
-        <button>Explore</button>
+        <button onclick="window.open('studio.html', '_blank')">Explore</button>
       </div>
 
       <!-- Card 4: Outdoor Fashion Photography -->
       <div class="card4 scroll-element">
         <h2>Outdoor Fashion Photography</h2>
         <p>Where architecture and attitude steal the frame.</p>
-        <button>Discover</button>
+        <button onclick="window.open('outdoor.html', '_blank')">Discover</button>
       </div>
     </div>
 
@@ -231,13 +231,13 @@
     </section>
 
     <!-- Call to Action Section -->
-    <section class="cta-section scroll-element" data-delay="100">
+    <section class="cta-section scroll-element" data-delay="100" id="contact">
       <div class="cta-container">
         <h2>Ready to Elevate Your Brand?</h2>
         <p>Let's create something extraordinary together. Book your consultation today.</p>
         <div class="cta-buttons">
-          <button class="cta-primary">Book a Session</button>
-          <button class="cta-secondary">View Portfolio</button>
+          <button class="cta-primary" onclick="window.open('booking.html', '_blank')">Book a Session</button>
+          <button class="cta-secondary" onclick="window.open('portfolio.html', '_blank')">View Portfolio</button>
         </div>
         <div class="contact-info">
           <div class="contact-item">
