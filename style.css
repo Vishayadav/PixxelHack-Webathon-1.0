@@ -2,14 +2,21 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+  font-family: "Poppins", sans-serif;
+  color: #2c1810;
+  width: 100vw;
   overflow-x: hidden;
+<<<<<<< HEAD
 
   /* Elegant soft glow gradient background */
   background: linear-gradient(140deg, #e09350, #d37731, #925411, #58310e);
+=======
+  
+  /* Enhanced warm fashion gradient background */
+  background: linear-gradient(140deg, #f8e6d3, #f5d4b8, #e8b788, #d49962, #7c4d28);
+>>>>>>> e0c33d2f732e0808806820ee26e1289279475b07
   background-size: 400% 400%;
-  animation: gradientShift 20s ease infinite;
+  animation: gradientShift 25s ease infinite;
   position: relative;
 }
 
@@ -20,30 +27,531 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-.container {
-  padding-top: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+/* Scroll Animation Styles */
+.scroll-element {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.card{
-    height: 50vh;
-    width: 50%;
+.scroll-element.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-element.animate-out {
+  opacity: 0.3;
+  transform: scale(0.95);
+}
+
+.container {
+  height: auto;
+  min-height: 35vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-top: 80px;
+  padding-bottom: 30px;
+}
+
+/* Image container for ink effect */
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 0 10px;
+  width: 280px;
+  height: 350px;
+}
+
+.card {
+  height: auto;
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+/* Enhanced Hero Images Styling with Ink Spread Effect */
+.hero-img {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: none;
+  
+  /* Completely disable all transforms and transitions */
+  transform: none !important;
+  transition: none !important;
+  
+  /* Lighter faded/desaturated initial state - more visible */
+  filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
+}
+
+.hero-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-img.animate-in {
+  opacity: 1;
+  transform: none !important;
+  transition: none !important;
+}
+
+.hero-img.animate-out {
+  opacity: 1;
+  filter: grayscale(60%) brightness(0.85) contrast(0.9) saturate(0.4);
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Custom cursor for hero images */
+.hero-img:hover {
+  cursor: none;
+}
+
+/* Ink spread effect container */
+.ink-spread {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(ellipse, 
+    rgba(30, 30, 30, 0.9) 0%, 
+    rgba(20, 20, 20, 0.7) 20%, 
+    rgba(40, 40, 40, 0.5) 40%,
+    rgba(60, 60, 60, 0.3) 60%,
+    rgba(80, 80, 80, 0.15) 80%,
+    transparent 95%);
+  mix-blend-mode: multiply;
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: blur(2px);
+  
+  /* Irregular ink-like shape */
+  border-radius: 45% 55% 70% 30% / 60% 40% 80% 20%;
+  
+  /* Add ink texture using pseudo-elements */
+  position: relative;
+}
+
+.ink-spread::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 30% 70%, 
+    rgba(0, 0, 0, 0.4) 0%, 
+    transparent 30%),
+    radial-gradient(circle at 80% 20%, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    transparent 25%),
+    radial-gradient(circle at 60% 90%, 
+    rgba(0, 0, 0, 0.2) 0%, 
+    transparent 20%);
+  border-radius: 60% 40% 30% 70% / 50% 80% 20% 60%;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+.ink-spread::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at 20% 30%, 
+    rgba(0, 0, 0, 0.3) 0%, 
+    transparent 35%),
+    radial-gradient(circle at 90% 80%, 
+    rgba(0, 0, 0, 0.25) 0%, 
+    transparent 30%);
+  border-radius: 30% 70% 60% 40% / 80% 20% 40% 60%;
+  mix-blend-mode: multiply;
+  z-index: -1;
+}
+
+.ink-spread.active {
+  transform: scale(1);
+  animation: inkSpread 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes inkSpread {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+    filter: blur(8px);
+    border-radius: 45% 55% 70% 30% / 60% 40% 80% 20%;
+  }
+  15% {
+    transform: scale(0.2) rotate(25deg);
+    opacity: 0.6;
+    filter: blur(6px);
+    border-radius: 60% 40% 50% 80% / 70% 30% 90% 10%;
+  }
+  30% {
+    transform: scale(0.5) rotate(60deg);
+    opacity: 0.9;
+    filter: blur(4px);
+    border-radius: 40% 80% 30% 70% / 50% 90% 20% 60%;
+  }
+  50% {
+    transform: scale(0.8) rotate(120deg);
+    opacity: 1;
+    filter: blur(2px);
+    border-radius: 70% 30% 90% 10% / 40% 80% 60% 20%;
+  }
+  75% {
+    transform: scale(0.95) rotate(160deg);
+    opacity: 0.9;
+    filter: blur(1px);
+    border-radius: 30% 70% 40% 60% / 80% 20% 70% 30%;
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
+    opacity: 0.7;
+    filter: blur(0px);
+    border-radius: 55% 45% 65% 35% / 75% 25% 85% 15%;
+  }
+}
+
+/* Ink droplet animation */
+@keyframes dropletSpread {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 1;
+    filter: blur(1px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+    filter: blur(0px);
+  }
+}
+
+/* Reveal effect using clip-path */
+.color-reveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: none;
+  clip-path: circle(0px at 50% 50%);
+  transition: clip-path 0.3s ease;
+  z-index: 3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+/* Set background images for each reveal layer */
+.image-container:nth-child(1) .color-reveal {
+  background-image: url('images/PixxelHack2.jpg');
+}
+
+.image-container:nth-child(2) .color-reveal {
+  background-image: url('images/PixxelHack1.jpg');
+}
+
+.image-container:nth-child(3) .color-reveal {
+  background-image: url('images/PixxelHack3.jpg');
+}
+
+/* Floating animation removed to stop oscillation */
+
+/* Fallback for regular card images */
+.card img:not(.hero-img) {
+  box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.secondDiv{
+    height: 400px;
+    width: 100%;
+    background: linear-gradient(135deg, #4a2c17, #6b3d24, #8b4f30, #a86b42);
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 20px;
+    position: relative;
 }
-/* Reset & Font */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.secondDiv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+}
+
+.card1{
+    background-image: url(images/PixxelHack4.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.card1 h2{
+    z-index: 1;
+    padding-top: 120px;
+}
+
+.card1 p, .card1 button {
+    position: relative;
+    z-index: 1;
+}
+
+.card1 button {
+    background: linear-gradient(135deg, #8b4f30, #a86b42);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card1 button:hover {
+    background: linear-gradient(135deg, #a86b42, #c9864f);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card2{
+    background-image: url(images/PixxelHack5.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
 }
 
 
+.card2 h2{
+    z-index: 1;
+    padding-top: 120px;
+}
+
+.card2 p, .card2 button {
+    position: relative;
+    z-index: 1;
+}
+
+.card2 button {
+    background: linear-gradient(135deg, #6b3d24, #8b4f30);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card2 button:hover {
+    background: linear-gradient(135deg, #8b4f30, #a86b42);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card3{
+    background-image: url(images/PixxelHack6.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.card3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.card3 h2{
+    z-index: 1;
+    padding-top: 120px;
+}
+
+.card3 p, .card3 button {
+    position: relative;
+    z-index: 1;
+}
+
+.card3 button {
+    background: linear-gradient(135deg, #4a2c17, #6b3d24);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card3 button:hover {
+    background: linear-gradient(135deg, #6b3d24, #8b4f30);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.card4{
+    background-image: url(images/PixxelHack7.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.card4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.card4 h2{
+    z-index: 1;
+    padding-top: 120px;
+}
+
+.card4 p, .card4 button {
+    position: relative;
+    z-index: 1;
+}
+
+.card4 button {
+    background: linear-gradient(135deg, #a86b42, #c9864f);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card4 button:hover {
+    background: linear-gradient(135deg, #c9864f, #e8a866);
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
 
 /* Navbar */
 .navbar {
@@ -51,21 +559,23 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(248, 230, 211, 0.95);
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 99999;
+  box-shadow: 0 4px 20px rgba(76, 44, 23, 0.15);
+  -webkit-backdrop-filter:blur(15px);
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #7c4d28;
+  color: #4a2c17;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -78,30 +588,27 @@ body {
   text-decoration: none;
   padding: 10px 24px;
   border-radius: 50px;
-  background-color: #7c4d28;
+  background: linear-gradient(135deg, #6b3d24, #8b4f30);
   color: #fff;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .nav-links li a:hover {
-  background-color: #fff;
-  color: #7c4d28;
-  box-shadow: 0 4px 12px rgba(124, 77, 40, 0.2);
+  background: linear-gradient(135deg, #f8e6d3, #f5d4b8);
+  color: #4a2c17;
+  box-shadow: 0 4px 12px rgba(139, 79, 48, 0.3);
+  transform: translateY(-1px);
+}
+
+#lastAnchorLink{
+  margin-right: 100px;
 }
 
 /* Container Section */
-.container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 80px;
-}
 
 .card {
-  height: 50vh;
+  height: 45vh;
   width: 50%;
   display: flex;
   align-items: center;
@@ -121,17 +628,23 @@ body {
 }
 .promo-section {
   width: 100%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(248, 230, 211, 0.85);
   padding: 100px 60px;
   text-align: center;
-  color: #7c4d28;
--webkit-backdrop-filter:blur(5px) ;
-  backdrop-filter: blur(5px);
+  color: #4a2c17;
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter: blur(8px);
+  border-top: 2px solid rgba(139, 79, 48, 0.2);
+  border-bottom: 2px solid rgba(139, 79, 48, 0.2);
 }
 
 .promo-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  background: linear-gradient(135deg, #6b3d24, #a86b42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .promo-section p {
@@ -143,7 +656,8 @@ body {
   position: relative;
   background: linear-gradient(to bottom right, #d8bfae, #f6e7d8);
   overflow: hidden;
-  padding: 120px 0;
+  padding: 80px 0 60px 0;
+  z-index: 1;
 }
 
 /* Common ripple style */
@@ -195,13 +709,78 @@ body {
   }
 }
 
-/* Content above the ripples */
-
-.ripple-section {
-  position: relative;
-  background: linear-gradient(to bottom right, #f5e8dc, #e9d3c5);
+.afterscroll{
+  height: 55vh;
+  width: 100%;
+  background: linear-gradient(135deg, #3d1f0f, #4a2c17, #6b3d24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding: 120px 0;
+  position: relative;
+}
+
+.afterscroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(168, 107, 66, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Marquee Container */
+.marquee-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Marquee Track */
+.marquee-track {
+  display: flex;
+  animation: marqueeScroll 60s linear infinite;
+  gap: 30px;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Marquee Images */
+.marquee-image {
+  height: 320px;
+  width: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for individual images */
+.marquee-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  position: relative;
+}
+
+/* Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 #fullpage .section {
